@@ -8,14 +8,14 @@ import Approach from "@/components/Approach";
 import Experience from "@/components/Experience";
 import RecentProjects from "@/components/RecentProjects";
 
-import { ClientWrapper } from "@/components/ClientWrapper";
+import { ClientContextProvider } from "@/components/ClientWrapper";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
 
 const Home = () => {
   return (
     <main className="relative bg-blue-950 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
       <div className="max-w-7xl w-full">
-        <ClientWrapper>
+        <ClientContextProvider>
           <FloatingNav navItems={navItems} />
           <Hero />
           <Grid />
@@ -24,7 +24,7 @@ const Home = () => {
           <Experience />
           <Approach />
           <Footer />
-        </ClientWrapper>
+        </ClientContextProvider>
       </div>
     </main>
   );
