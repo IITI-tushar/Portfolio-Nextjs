@@ -1,8 +1,11 @@
-// "use client"; // Ensure this file is only client-side
+"use client"; // Ensure this file is only client-side
 
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
-import Lottie from "react-lottie";
+import dynamic from "next/dynamic";
+
+// Dynamically import Lottie and disable SSR
+const LottieComponent = dynamic(() => import("react-lottie"), { ssr: false });
 import { cn } from "@/lib/utils"; // Utility to combine classnames
 
 import { BackgroundGradientAnimation } from "./GradientBg";
@@ -216,7 +219,11 @@ export const BentoGridItem = ({
                   copied ? "block" : "block"
                 }`}
               >
-                <Lottie options={defaultOptions} height={200} width={400} />
+                <LottieComponent
+                  options={defaultOptions}
+                  height={200}
+                  width={400}
+                />
               </div>
 
               <MagicButton
