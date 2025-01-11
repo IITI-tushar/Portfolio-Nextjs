@@ -19,7 +19,7 @@ const Home = () => {
         <ClientContextProvider>
           <FloatingNav navItems={navItems} />
           <Hero />
-          {/* <Grid /> */}
+          <Grid />
           <RecentProjects />
           {/* <Clients /> */}
           <Experience />
