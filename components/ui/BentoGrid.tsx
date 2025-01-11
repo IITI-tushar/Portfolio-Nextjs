@@ -1,10 +1,7 @@
 "use client";
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
-
-// Also install this npm i --save-dev @types/react-lottie
 import Lottie from "react-lottie";
-
 import { cn } from "@/lib/utils";
 
 import { BackgroundGradientAnimation } from "./GradientBg";
@@ -12,7 +9,6 @@ import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "../MagicButton";
 import { motion } from "framer-motion";
-import { ClientWrapper } from "./ClientWrapper";
 
 export const BentoGrid = ({
   className,
@@ -24,8 +20,8 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        // change gap-4 to gap-8, change grid-cols-3 to grid-cols-5, remove md:auto-rows-[18rem], add responsive code
-        "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 md:grid-row-7 gap-4 lg:gap-8 mx-auto",
+        // Responsive adjustments: grid-cols-6 and grid-cols-5 based on screen size
+        "grid grid-cols-1 md:grid-cols-6 lg:grid-cols-5 gap-4 lg:gap-8 mx-auto",
         className
       )}
     >
@@ -71,7 +67,7 @@ export const BentoGridItem = ({
   ];
   const infiniteScrollVariant = {
     animate: {
-      y: [0, -200], // Moves up by 200px or adjust based on the content size
+      y: [0, -200], // Moves up by 200px or adjust based on content size
     },
   };
 
@@ -110,7 +106,7 @@ export const BentoGridItem = ({
             <img
               src={img}
               alt={img}
-              className={cn(imgClassName, "object-cover object-center ")}
+              className={cn(imgClassName, "object-cover object-center")}
             />
           )}
         </div>
@@ -152,15 +148,14 @@ export const BentoGridItem = ({
 
           {id === 3 && (
             <div className="flex gap-1 lg:gap-5 w-fit absolute -right-3 lg:-right-2 px-5">
-              {/* Left List with Infinite Scrolling */}
               <motion.div
                 className="flex flex-col gap-3 md:gap-3 lg:gap-8"
                 variants={infiniteScrollVariant}
                 animate="animate"
                 transition={{
-                  duration: 6, // Adjust scrolling speed
-                  ease: "linear", // Smooth constant scroll
-                  repeat: Infinity, // Loop infinitely
+                  duration: 6,
+                  ease: "linear",
+                  repeat: Infinity,
                 }}
               >
                 {leftLists.map((item, i) => (
@@ -172,7 +167,6 @@ export const BentoGridItem = ({
                     {item}
                   </span>
                 ))}
-                {/* Append items to make scroll seamless */}
                 {leftLists.map((item, i) => (
                   <span
                     key={`repeat-left-${i}`}
@@ -184,15 +178,14 @@ export const BentoGridItem = ({
                 ))}
               </motion.div>
 
-              {/* Right List with Infinite Scrolling */}
               <motion.div
                 className="flex flex-col gap-3 md:gap-3 lg:gap-8"
                 variants={infiniteScrollVariant}
                 animate="animate"
                 transition={{
-                  duration: 6, // Adjust scrolling speed
-                  ease: "linear", // Smooth constant scroll
-                  repeat: Infinity, // Loop infinitely
+                  duration: 6,
+                  ease: "linear",
+                  repeat: Infinity,
                 }}
               >
                 {rightLists.map((item, i) => (
@@ -204,7 +197,6 @@ export const BentoGridItem = ({
                     {item}
                   </span>
                 ))}
-                {/* Append items to make scroll seamless */}
                 {rightLists.map((item, i) => (
                   <span
                     key={`repeat-right-${i}`}
@@ -224,7 +216,6 @@ export const BentoGridItem = ({
                   copied ? "block" : "block"
                 }`}
               >
-                {/* <img src="/confetti.gif" alt="confetti" /> */}
                 <Lottie options={defaultOptions} height={200} width={400} />
               </div>
 
