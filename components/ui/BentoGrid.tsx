@@ -1,8 +1,9 @@
-"use client";
+"use client"; // Ensure this file is only client-side
+
 import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import Lottie from "react-lottie";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"; // Utility to combine classnames
 
 import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
@@ -10,6 +11,7 @@ import animationData from "@/data/confetti.json";
 import MagicButton from "../MagicButton";
 import { motion } from "framer-motion";
 
+// BentoGrid is used to create a flexible grid layout
 export const BentoGrid = ({
   className,
   children,
@@ -30,6 +32,7 @@ export const BentoGrid = ({
   );
 };
 
+// BentoGridItem is the individual grid item with dynamic content
 export const BentoGridItem = ({
   className,
   id,
@@ -49,6 +52,7 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
+  // List of tech stacks
   const leftLists = [
     "ReactJS",
     "Express",
@@ -65,6 +69,7 @@ export const BentoGridItem = ({
     "GitHub",
     "MongoDB",
   ];
+
   const infiniteScrollVariant = {
     animate: {
       y: [0, -200], // Moves up by 200px or adjust based on content size
@@ -113,7 +118,7 @@ export const BentoGridItem = ({
         <div
           className={`absolute right-0 -bottom-5 ${
             id === 5 && "w-full opacity-80"
-          } `}
+          }`}
         >
           {spareImg && (
             <img
@@ -138,9 +143,7 @@ export const BentoGridItem = ({
           <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
             {description}
           </div>
-          <div
-            className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10`}
-          >
+          <div className="font-sans text-lg lg:text-3xl max-w-96 font-bold z-10">
             {title}
           </div>
 
@@ -161,8 +164,7 @@ export const BentoGridItem = ({
                 {leftLists.map((item, i) => (
                   <span
                     key={i}
-                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
-          lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
                   >
                     {item}
                   </span>
@@ -170,8 +172,7 @@ export const BentoGridItem = ({
                 {leftLists.map((item, i) => (
                   <span
                     key={`repeat-left-${i}`}
-                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
-          lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
                   >
                     {item}
                   </span>
@@ -191,8 +192,7 @@ export const BentoGridItem = ({
                 {rightLists.map((item, i) => (
                   <span
                     key={i}
-                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
-          lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
                   >
                     {item}
                   </span>
@@ -200,8 +200,7 @@ export const BentoGridItem = ({
                 {rightLists.map((item, i) => (
                   <span
                     key={`repeat-right-${i}`}
-                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
-          lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                    className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 lg:opacity-100 rounded-lg text-center bg-[#10132E]"
                   >
                     {item}
                   </span>
@@ -209,6 +208,7 @@ export const BentoGridItem = ({
               </motion.div>
             </div>
           )}
+
           {id === 6 && (
             <div className="mt-5 relative">
               <div
