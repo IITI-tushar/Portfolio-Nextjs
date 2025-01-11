@@ -17,9 +17,9 @@ const Home = () => {
     <main className="relative bg-blue-950 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
       <div className="max-w-7xl w-full">
         <ClientContextProvider>
-          {/* <FloatingNav navItems={navItems} /> */}
+          <FloatingNav navItems={navItems} />
           <Hero />
-          <Grid />
+          {/* <Grid /> */}
           <RecentProjects />
           {/* <Clients /> */}
           <Experience />
